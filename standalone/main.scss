@@ -1,0 +1,5 @@
+@import './../src/css/main';
+
+.mn_thing-table {
+    @include mn_table;
+}
