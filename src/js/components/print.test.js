@@ -1,5 +1,5 @@
 const components = require('./index');
-const initPrint = components.print.init;
+const initPrint = components.Print.init;
 
 describe('print', function() {
   let $wrapper;

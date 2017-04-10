@@ -3,9 +3,9 @@ require('./main.scss');
 const {qs, qsAll} = utilities;
 
 //Print
-components.print.init();
+components.Print.init();
 
-//Thing Handler
-/*[].forEach.call(
-    document.querySelectorAll('.mn_js-thing-handler'), 
-    thingHandler => new components.thingHandler(thingHandler).init());*/
+//Date Info
+[].forEach.call(
+    document.querySelectorAll('.mn_js-date-info'), 
+    $dateInfo => new components.DateInfo($dateInfo).init());
