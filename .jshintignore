@@ -1,6 +1,7 @@
 node_modules
 output
 target
+src/node
 standalone/dev-server.js
 standalone/dev-client.js
 karma.conf.js

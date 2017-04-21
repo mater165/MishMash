@@ -21,7 +21,8 @@ const buildConfig = function (env) {
         {
           test: /\.js$/,
           exclude: [
-            /node_modules/
+            /node_modules/,
+            /node/
           ],
           use: {loader: 'babel-loader', options: {presets: 'es2015'}}
         }, {
@@ -29,12 +30,12 @@ const buildConfig = function (env) {
           use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
         }, {
           test: /\.html$/,
-          include: path.resolve(__dirname, './src/html/index.html'),
-          use: 'html-loader'
+          include: path.resolve(__dirname, './standalone/index.html'),
+          use: {loader: 'html-loader', options: {attrs: ['img:src', 'link:href']}}
         },{
           test: /\.(gif|jpe?g|png|svg)(\?.*)?$/,
           use: [
-            'file-loader',
+            'url-loader',
             {
               loader: 'image-webpack-loader',
               options: {}

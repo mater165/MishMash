@@ -1,8 +1,11 @@
 const AjaxService = {
-  getPromise: function getPromise(url) {
+  getPromise: function getPromise(url, addHeaders) {
     return new Promise(function(resolve, reject) {
-      var xhr = new XMLHttpRequest();
+      let xhr = new XMLHttpRequest();
       xhr.open('GET', url);
+      if (addHeaders) {
+        xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+      }
 
       xhr.onload = function() {
         if (xhr.status === 200) {

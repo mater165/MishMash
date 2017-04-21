@@ -16,7 +16,6 @@ compiler.plugin('compilation', (compilation) => {
 });
 
 const port = process.env.PORT || 8081;
-const mockApiPort = 8083;
 
 express()
     .use(devMiddleware)
@@ -26,10 +25,4 @@ express()
     })
     .listen(port);
 
-express()
-    .get('*', (req, res) => require('fs').readFile(
-        `standalone/mockdata/${req.path.substr(5)}.json`,
-        (err, data) => res.send(data))
-    ).listen(mockApiPort);
-
-console.log(`dev-servern är startad på ${port} och mockapiProxyn på ${mockApiPort}`);
+console.log(`dev-servern är startad på ${port}`);

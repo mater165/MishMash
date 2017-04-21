@@ -1,5 +1,35 @@
 @import './../src/css/main';
 
-.mn_thing-table {
-    @include mn_table;
+.mn_mishmash {
+    &__trans {
+        display: flex;
+        justify-content: space-between;
+
+        &-item {
+            flex-grow: 1;
+            flex-basis: auto;
+            text-align: center;
+
+            &-heading {
+                margin: 0.5em 0;
+            }
+
+            &-content {
+                display: flex;
+
+                & div:first-child,
+                & div:last-child {
+                    flex-grow: 2;
+                }
+            }
+        }
+    }
+
+    &__date-info-item {
+        background: no-repeat  center/100% url('../src/images/sverige.png');
+        min-height: 15em;
+        text-align: center;
+        color: black;
+        font-size: 2rem;
+    }
 }

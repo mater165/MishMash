@@ -14,3 +14,8 @@ components.Print.init();
 [].forEach.call(
     document.querySelectorAll('.mn_js-date-info'), 
     $dateInfo => new components.DateInfo($dateInfo).init());
+
+//Transport Info
+[].forEach.call(
+    document.querySelectorAll('.mn_js-trans-info'), 
+    $transInfo => new components.TransInfo($transInfo).init());
