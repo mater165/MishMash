@@ -1,7 +1,7 @@
-import {dateUtils} from './../utilities';
-import {AjaxService} from './../services';
+import { dateUtils } from './../utilities';
+import { AjaxService } from './../services';
 
-const MIN_60 = 3600000;
+//const MIN_60 = 3600000;
 const MIN_15 = 900000;
 //const MIN_1 = 60000;
 const SEC_1 = 1000;
@@ -11,7 +11,7 @@ function showDateName($dateName, data) {
 }
 
 function getDateInfo(callback, $element) {
-    AjaxService.getPromise('http://api.dryg.net/dagar/v2.1/' + dateUtils.getSlashedDate(new Date()))
+  AjaxService.getPromise('http://api.dryg.net/dagar/v2.1/' + dateUtils.getSlashedDate(new Date()))
     .then((response) => {
       console.log(JSON.parse(response));
       callback($element, JSON.parse(response));
@@ -19,33 +19,33 @@ function getDateInfo(callback, $element) {
     }, (error) => {
       console.error('Failed!', error);
     });
-    //window.setTimeout(getDateInfo, MIN_60);
-  }
+  //window.setTimeout(getDateInfo, MIN_60);
+}
 
 function showWelcome($welcome, date) {
   $welcome.innerText = 'God ' + (date.getHours() < 10 ? 'morgon' : date.getHours() < 12 ? 'förmiddag' : date.getHours() < 18 ? 'eftermiddag' : 'kväll') + ' Maria & Mattias';
-  window.setTimeout(function() {
+  window.setTimeout(function () {
     showWelcome($welcome, new Date());
   }, MIN_15);
 }
 
 function showTime($time, date) {
   $time.innerText = dateUtils.getTime(date);
-  window.setTimeout(function() {
+  window.setTimeout(function () {
     showTime($time, new Date());
   }, SEC_1);
 }
 
 function showDate($date, date) {
   $date.innerText = 'Idag är det ' + dateUtils.getTextDate(date);
-  window.setTimeout(function() {
+  window.setTimeout(function () {
     showDate($date, new Date());
   }, SEC_1);
 }
 
 function showTimeDate($timeDate, date) {
   $timeDate.innerHTML = `<span class="">${dateUtils.getTime(date)}</span> <span class="">${dateUtils.getTextDate(date)}</span>`;
-  window.setTimeout(function() {
+  window.setTimeout(function () {
     showTimeDate($timeDate, new Date());
   }, SEC_1);
 }
